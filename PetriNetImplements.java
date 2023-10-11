@@ -7,72 +7,64 @@ public class PetriNetImplements implements petrinet{
 	@Override
 	public void add(Place place) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'add'");
 	}
+
 	@Override
 	public void add(Transition transition) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'add'");
 	}
 	@Override
 	public void OutgoingArc(Place place, Transition transition, int valeur) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'OutgoingArc'");
 	}
 	@Override
 	public void addIncomingArc(Transition transition, Place place, int valeur) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'addIncomingArc'");
 	}
 	@Override
 	public void remove(Place place) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'remove'");
 	}
 	@Override
 	public void remove(Transition transition) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'remove'");
 	}
 	@Override
 	public void step(Transition transition) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'step'");
 	}
 	@Override
 	public void removeOutgoingArc(Place place, Transition transition) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'removeOutgoingArc'");
 	}
 	@Override
 	public void removeIncominggArc(Transition transition, Place place) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'removeIncominggArc'");
 	}
 	@Override
 	public String findPlaceByName(String name) {
+		return name;
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'findPlaceByName'");
 	}
 	@Override
 	public String findTranistionByName(String name) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'findTranistionByName'");
+		return name;
 	}
 	@Override
 	public ArrayList<Place> getAllPlaces() {
+		return places;
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getAllPlaces'");
 	}
 	@Override
 	public ArrayList<Transition> getAllTransitions() {
+		return transistions;
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getAllTransitions'");
 	}
 	@Override
 	public ArrayList<Edge> getAllArcs() {
+		return null;
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getAllArcs'");
 	}
 
 }

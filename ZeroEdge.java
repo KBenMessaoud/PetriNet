@@ -8,6 +8,9 @@ public class ZeroEdge extends OutEdge{
 
     @Override
     public void trigger() {
+        if(this.getValue()> place.getTokens()){
+            System.out.println("Not enough tokens");
+        }
         
     }
 
