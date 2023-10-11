@@ -21,7 +21,7 @@ public class Transition {
                      outEdgeList.get(i).trigger();
                     
                }else{
-                     System.out.println("Not Triggerable");
+                     System.out.println("OutEdge : "+ outEdgeList.get(i)+ " is Not Triggerable");
                }
                  inEdgeList.get(i).trigger();
             }
