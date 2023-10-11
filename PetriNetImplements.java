@@ -46,9 +46,8 @@ public class PetriNetImplements implements petrinet{
 	public void add(Transition transition) {
 		// TODO Auto-generated method stub
 
-        
 
-        transistions.add(0, transition);
+        transistions.add(transistions.size(), transition);
 
 
 
@@ -56,6 +55,8 @@ public class PetriNetImplements implements petrinet{
 	@Override
 	public void addOutgoingArc(Place place, Transition transition, int valeur) {
 		// TODO Auto-generated method stub
+       
+        
 
 
 
