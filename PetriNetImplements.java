@@ -29,12 +29,10 @@ public class PetriNetImplements implements petrinet{
 
     @Override
 	public void remove(Place place) {
-
-        int nombreElementPlaceList;
-
-        nombreElementPlaceList = places.size();
+     
         if(places.size()!=0){
-            places.remove(nombreElementPlaceList-1);
+			
+           places.remove(place);
         }else{
             System.out.println("the list of places is empty");
         }
