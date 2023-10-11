@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class InEdge extends Edge {
 
     Place place = new Place();
@@ -13,6 +15,7 @@ public class InEdge extends Edge {
     @Override
     public void trigger() {
         
+        place.add(this.getValue());
     }
     
 }
