@@ -9,7 +9,7 @@ public interface petrinet {
     public void add (Transition transition);
 
     //addOutgoingArc(Place source, Transition destination, int weight): Cette méthode ajoute un arc sortant, connectant une place source à une transition de destination avec un poids défini.
-    public void OutgoingArc(Place place, Transition transition, int valeur);
+    public void addOutgoingArc(Place place, Transition transition, int valeur);
 
     //addIncomingArc(Transition source, Place destination, int weight): Ajoute un arc entrant au réseau, où l'arc est connecté d'une transition source à une place de destination et cela avec un poids spécifique qui correspond dans notre diagramme de classe à l’attribut value.
     public void addIncomingArc(Transition transition, Place place, int valeur);

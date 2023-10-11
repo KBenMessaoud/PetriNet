@@ -4,7 +4,9 @@ public class PetriNetImplements implements petrinet{
     
     private ArrayList<Transition> transistions = new ArrayList<Transition>();
     private ArrayList<Place> places = new ArrayList<Place>();
-	@Override
+	
+    
+    @Override
 	public void add(Place place) {
 		// TODO Auto-generated method stub
 	}
@@ -14,7 +16,7 @@ public class PetriNetImplements implements petrinet{
 		// TODO Auto-generated method stub
 	}
 	@Override
-	public void OutgoingArc(Place place, Transition transition, int valeur) {
+	public void addOutgoingArc(Place place, Transition transition, int valeur) {
 		// TODO Auto-generated method stub
 	}
 	@Override
