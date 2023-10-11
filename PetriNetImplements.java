@@ -12,7 +12,7 @@ public class PetriNetImplements implements petrinet{
     public String toString() {
 
     // TODO Auto-generated method stub
-    return "mettre état du petriNet dddd";
+    return "Le nombre de places : " + places.size() + "    /////     Le nombre de transition : "+ transistions.size();
 
     }
 
