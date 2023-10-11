@@ -12,7 +12,7 @@ public class PetriNetImplements implements petrinet{
     public String toString() {
 
     // TODO Auto-generated method stub
-    return "mettre état du petriNet";
+    return "mettre état du petriNet dddd";
 
     }
 
@@ -56,7 +56,7 @@ public class PetriNetImplements implements petrinet{
 	public void addOutgoingArc(Place place, Transition transition, int valeur) {
 		// TODO Auto-generated method stub
        
-        
+
 
 
 
