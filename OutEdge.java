@@ -16,7 +16,12 @@ public class OutEdge extends Edge{
             System.out.println("Not enough tokens");
         }
         else{
-            place.remove(this.getValue());
+            try {
+                place.remove(this.getValue());
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
        
     }

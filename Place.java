@@ -3,15 +3,19 @@ public class Place {
 
     private int token;
     private String name;
+    private OutEdge outEdge;
 
 
-    public void remove(int token){
+    public void remove(int tokenEnMoins) throws Exception{
+        if(this.token >= tokenEnMoins && this.token > 0){
+        this.token-=tokenEnMoins;
 
-
-    }
+    }else{
+        throw new Exception("Not enought tokens in this place");
+    }}
     
-    public void add(int place){
-
+    public void add(int tokenSupplementaire){
+        this.token+=tokenSupplementaire;
         
     }
 
@@ -26,7 +30,11 @@ public class Place {
     }
 
     public boolean isTokenSup(){
-		return false;
+		if(this.token>=outEdge.getValue()){
+            return true;
+        }else{
+            return false;
+        }
 
     }
 }
