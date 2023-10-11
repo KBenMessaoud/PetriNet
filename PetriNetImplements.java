@@ -10,9 +10,10 @@ public class PetriNetImplements implements petrinet{
 
     @Override
     public String toString() {
-    
-    return "Le nombre de places : " + places.size() + "    /////     Le nombre de transition : "+ transistions.size();
-        
+
+    // TODO Auto-generated method stub
+    return "mettre état du petriNet";
+
     }
 
 
