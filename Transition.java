@@ -16,6 +16,19 @@ public class Transition {
 
     public void step(){
 
+        	for(int i = 0;i<outEdgeList.size()-1;i++){
+               if(outEdgeList.get(i).isTriggerable()) {
+                     outEdgeList.get(i).trigger();
+                    
+               }else{
+                     System.out.println("Not Triggerable");
+               }
+                 inEdgeList.get(i).trigger();
+            }
+
+
+
+
     }
 
     public String getName(){
