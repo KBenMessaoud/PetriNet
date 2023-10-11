@@ -5,12 +5,12 @@ public class Place {
     private String name;
 
 
-    public void remove(){
+    public void remove(int token){
 
 
     }
     
-    public void add(int a){
+    public void add(int place){
 
         
     }

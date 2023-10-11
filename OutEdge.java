@@ -7,18 +7,27 @@ public class OutEdge extends Edge{
    
     public OutEdge(int value) {
         super(value);
-        //TODO Auto-generated constructor stub
     }
 
 
     @Override
     public void trigger() {
-        
+        if(this.getValue()> place.getTokens()){
+            System.out.println("Not enough tokens");
+        }
+        else{
+            place.remove(this.getValue());
+        }
+       
     }
 
     @Override
     public boolean isTriggerable() {
-        return true;
+        if(this.getValue() <= place.getTokens()){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     
