@@ -14,7 +14,9 @@ public class Edge {
         System.out.println("triggered");
     }
     
-    
+    public boolean isTriggerable(){
+        return true;
+    }
     
     public int getValue() {
         return value;
