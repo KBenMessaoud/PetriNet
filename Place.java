@@ -5,6 +5,15 @@ public class Place {
     private String name;
     private OutEdge outEdge;
 
+    public Place(String name, int token){
+        this.name = name;
+        this.token = token;
+        
+    }
+    public Place(){
+        
+    }
+
 
     public void remove(int tokenEnMoins) throws Exception{
         if(this.token >= tokenEnMoins && this.token > 0){

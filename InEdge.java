@@ -2,8 +2,8 @@ import javax.swing.JOptionPane;
 
 public class InEdge extends Edge {
 
-    Place place = new Place();
     
+    Place place = new Place();
     
     
     public InEdge(int value) {
