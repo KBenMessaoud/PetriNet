@@ -7,13 +7,26 @@ public class EmptyEdge extends OutEdge {
 
     @Override
     public void trigger() {
-        
+        if(isTriggerable() == true){
+
+            try {
+                super.place.remove(super.place.getTokens());
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
+        }
     }
 
-    @Override
     public boolean isTriggerable() {
+         if(super.place.getTokens() <= 0){
+            System.out.println("Not enough tokens");
+
+        return false;
+    }else{
         return true;
+
     }
-    
+    }
     
 }
