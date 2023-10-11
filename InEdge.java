@@ -1,6 +1,6 @@
 public class InEdge extends Edge {
 
-    
+    Place place = new Place();
     
     
     

@@ -1,7 +1,7 @@
 public class OutEdge extends Edge{
 
    
-   
+   Place place = new Place();
    
    
    
