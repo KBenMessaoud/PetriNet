@@ -1,12 +1,14 @@
 public class OutEdge extends Edge{
 
    
-   Place place = new Place();
-   
+    Place place = new Place();
+   private Transition transition;
+  
    
    
     public OutEdge(int value) {
         super(value);
+       
     }
 
 
@@ -33,6 +35,16 @@ public class OutEdge extends Edge{
         }else{
             return false;
         }
+    }
+
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
+
+
+    public void setTransition(Transition transition) {
+        this.transition = transition;
     }
 
     

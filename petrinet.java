@@ -21,7 +21,7 @@ public interface petrinet {
     public void remove (Transition transition);
 
     //step(Transition transition): exécute une étape de simulation en activant une transition donnée.
-    public void step (Transition transition);
+  //  public void step (Transition transition);
     
     //removeOutgoingArc(Place source, Transition destination): Élimine un arc sortant spécifique.
     public void removeOutgoingArc(Place place, Transition transition);
@@ -42,7 +42,9 @@ public interface petrinet {
     public ArrayList<Transition> getAllTransitions();
 
     //getAllArcs(): Elle retourne une liste de tous les arcs dans le réseau.
-    public ArrayList<Edge> getAllArcs();
+    public ArrayList<Edge> getAllOutGoingEdges();
+
+    public ArrayList<Edge> getAllInComingEdges();
 
 
 
