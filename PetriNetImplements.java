@@ -109,9 +109,16 @@ public class PetriNetImplements implements petrinet{
 		return null;
 	}
 	@Override
-	public String findTranistionByName(String name) {
+	public String findTransitionByName(String name) {
 		// TODO Auto-generated method stub
-		return name;
+				for (Transition t : getAllTransitions()) {
+			if (t.getName() == name) {
+				return t.getName();
+			}
+		}
+		System.out.println("the transition "+ name + " is not found");
+		return null;
+	}
 	}
 	@Override
 	public ArrayList<Place> getAllPlaces() {

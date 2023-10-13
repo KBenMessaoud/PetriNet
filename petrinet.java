@@ -33,7 +33,7 @@ public interface petrinet {
     public String findPlaceByName(String name);
 
     //findTransitionByName(string): Elle retourne une transition grâce à son nom.
-    public String findTranistionByName(String name);
+    public String findTransitionByName(String name);
 
     //getAllPlaces(): Elle retourne une liste de toutes les places dans le réseau.
     public ArrayList<Place> getAllPlaces();
