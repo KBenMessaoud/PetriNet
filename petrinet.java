@@ -42,9 +42,9 @@ public interface petrinet {
     public ArrayList<Transition> getAllTransitions();
 
     //getAllArcs(): Elle retourne une liste de tous les arcs dans le réseau.
-    public ArrayList<Edge> getAllOutGoingEdges();
+    public ArrayList<OutEdge> getAllOutGoingEdges(Place place);
 
-    public ArrayList<Edge> getAllInComingEdges();
+    public ArrayList<InEdge> getAllInComingEdges(Place place);
 
 
 

@@ -1,10 +1,11 @@
+import java.net.Inet4Address;
 import java.util.ArrayList;
 
 public class PetriNetImplements implements petrinet{
     
-    private ArrayList<Transition> transistions = new ArrayList<Transition>();
+    private ArrayList<Transition> transitions = new ArrayList<Transition>();
     private ArrayList<Place> places = new ArrayList<Place>();
-	
+
     
 
 
@@ -12,7 +13,7 @@ public class PetriNetImplements implements petrinet{
     public String toString() {
 
     // TODO Auto-generated method stub
-    return "Le nombre de places : " + places.size() + "    /////     Le nombre de transition : "+ transistions.size();
+    return "Le nombre de places : " + places.size() + "    /////     Le nombre de transition : "+ transitions.size();
 
     }
 
@@ -44,12 +45,9 @@ public class PetriNetImplements implements petrinet{
 	public void add(Transition transition) {
 		// TODO Auto-generated method stub
 
-
-        transistions.add(transistions.size(), transition);
-
-
-
+        transitions.add(transitions.size(), transition);
 	}
+
 	@Override
 	public void addOutgoingArc(Place place, Transition transition, int valeur) {
 		// TODO Auto-generated method stub
@@ -74,11 +72,7 @@ public class PetriNetImplements implements petrinet{
 	
 	@Override
 	public void remove(Transition transition) {
-		// TODO Auto-generated method stub
-
-
-
-		
+		transitions.remove(transition);
 	}
 	// @Override
 	// public void step(Transition transition) {
@@ -119,7 +113,7 @@ public class PetriNetImplements implements petrinet{
 		System.out.println("the transition "+ name + " is not found");
 		return null;
 	}
-	}
+	
 	@Override
 	public ArrayList<Place> getAllPlaces() {
 		return places;
@@ -127,20 +121,24 @@ public class PetriNetImplements implements petrinet{
 	}
 	@Override
 	public ArrayList<Transition> getAllTransitions() {
-		return transistions;
+		return transitions;
 		// TODO Auto-generated method stub
 	}
 	
 	@Override
-	public ArrayList<Edge> getAllInComingEdges() {
-		// TODO Auto-generated method stub
-		return null;
+	//récup toutes les inEdge d'une place
+
+	public ArrayList<InEdge> getAllInComingEdges(Place place) {
+		ArrayList<InEdge> AllIncomingEdge = new ArrayList<InEdge>() ;
+		AllIncomingEdge = place.getInEdgeList();
+		return AllIncomingEdge;
 	}
 
 	@Override
-	public ArrayList<Edge> getAllOutGoingEdges() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<OutEdge> getAllOutGoingEdges(Place place) {
+		ArrayList<OutEdge> AllOutGoingEdges = new ArrayList<OutEdge>() ;
+		AllOutGoingEdges = place.getOutEdgeList();
+		return AllOutGoingEdges;
 	}
 
 
