@@ -20,12 +20,8 @@ public class PetriNetImplements implements petrinet{
 
     @Override
 	public void add(Place place) {
-		// TODO Auto-generated method stub
-        int nombreElementPlaceList;
-
-        nombreElementPlaceList = places.size();
-
-        places.add(nombreElementPlaceList, place);
+		
+		places.add(place);
 	}
 
     @Override
@@ -74,10 +70,33 @@ public class PetriNetImplements implements petrinet{
 	public void remove(Transition transition) {
 		transitions.remove(transition);
 	}
-	// @Override
-	// public void step(Transition transition) {
-	// 	// TODO Auto-generated method stub
-	// }
+
+
+	@Override
+	 public void step(){
+		for (int i =0; i<=places.size();i++) {                         //boucle sur toutes les places
+			if(places.size()!=0){
+			for(int j = 0;j<= places.get(i).getOutEdgeList().size();j++){                //boucle sur les arcsortants associés aux places i
+ 					if(places.get(i).getOutEdgeList().get(j).isTriggerable()) {                     //ouehhh
+                     places.get(i).getOutEdgeList().get(j).trigger();
+        	
+                    
+               }else{
+                     System.out.println("OutEdge : "+ places.get(i).getOutEdgeList().get(j)+ " is Not Triggerable");
+               }
+			}
+			   for(int k = 0;k<= places.get(i).getInEdgeList().size();k++){
+					places.get(i).getInEdgeList().get(k).trigger(); // il faut aussi boucler sur tous les arcs entrants associés à la place 
+			   }
+                 
+			}
+		}
+}
+
+
+
+
+
 
 	@Override
 	public void removeOutgoingArc(Place place, Transition transition) {
