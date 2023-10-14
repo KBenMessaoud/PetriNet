@@ -74,18 +74,20 @@ public class PetriNetImplements implements petrinet{
 
 	@Override
 	 public void step(){
-		for (int i =0; i<=places.size();i++) {                         //boucle sur toutes les places
+		for (int i =0; i<places.size();i++) {                         //boucle sur toutes les places
 			if(places.size()!=0){
-			for(int j = 0;j<= places.get(i).getOutEdgeList().size();j++){                //boucle sur les arcsortants associés aux places i
- 					if(places.get(i).getOutEdgeList().get(j).isTriggerable()) {                     //ouehhh
+			for(int j = 0;j< places.get(i).getOutEdgeList().size();j++){                //boucle sur les arcsortants associés aux places i
+ 					
+					if(places.get(i).getOutEdgeList().get(j).isTriggerable()) {                     //ouehhh
                      places.get(i).getOutEdgeList().get(j).trigger();
         	
                     
                }else{
                      System.out.println("OutEdge : "+ places.get(i).getOutEdgeList().get(j)+ " is Not Triggerable");
+					 System.out.println(places.size());
                }
 			}
-			   for(int k = 0;k<= places.get(i).getInEdgeList().size();k++){
+			   for(int k = 0;k< places.get(i).getInEdgeList().size();k++){
 					places.get(i).getInEdgeList().get(k).trigger(); // il faut aussi boucler sur tous les arcs entrants associés à la place 
 			   }
                  

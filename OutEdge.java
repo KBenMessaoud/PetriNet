@@ -11,6 +11,7 @@ public class OutEdge extends Edge{
        
     }
 
+    
 
     @Override
     public void trigger() {
