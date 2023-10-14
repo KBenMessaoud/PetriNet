@@ -32,7 +32,8 @@ p.add(p3);
 p.add(p4);
 p.add(t1);
 
-p.addIncomingArc(t1, p3, 10);
+p.addIncomingArc(t1, p4, 4);
+p.addIncomingArc(t1, p3, 2);
 
 p.addOutgoingArc(p2, t1, 2);
 p.addOutgoingArc(p1, t1, 4);
