@@ -15,9 +15,12 @@ public class InEdge extends Edge {
 
     @Override
     public void trigger() {
-        
-        place.add(this.getValue());
-    }
+       
+            place.add(this.getValue());
+        }
+      
+
+    
 
 
     public void setPlace(Place place2) {

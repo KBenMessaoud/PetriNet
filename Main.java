@@ -20,9 +20,9 @@ class Main{
        // System.out.println("voila c moi "+ a.size());
 PetriNetImplements p = new PetriNetImplements();
 
-Place p1 = new Place("p1",10);
-Place p2 = new Place("p2",30);
-Place p3 = new Place("p3",20);
+Place p1 = new Place("p1",5);
+Place p2 = new Place("p2",3);
+Place p3 = new Place("p3",0);
 Place p4 = new Place("p4",35);
 
 Transition t1 = new Transition("transition 1");
@@ -31,15 +31,25 @@ p.add(p2);
 p.add(p3);
 p.add(p4);
 p.add(t1);
-p.addIncomingArc(t1, p2, 5);
-p.addOutgoingArc(p1, t1, 2);
-p.addOutgoingArc(p1, t1, 6);
-p.addOutgoingArc(p3, t1, 6);
+
+p.addIncomingArc(t1, p3, 10);
+
+p.addOutgoingArc(p2, t1, 2);
+p.addOutgoingArc(p1, t1, 4);
+
+//getvalue out, gettokens p1, getvalue in <= getvalue out -> trigger
 
 
 
-p.step();
+
+try {
+    p.step();
+} catch (Exception e) {
+    // TODO Auto-generated catch block
+   System.out.println("probleme de valeur : la somme des poids des arcs entrants est différente de celle des arcs sortants à une transition donnée");
+}
 System.out.println("valeur de p1 apres step :" +p1.getTokens());
 System.out.println("valeur de p2 apres step :"+ p2.getTokens());
+System.out.println("valeur de p3 apres step :"+ p3.getTokens());
     }
 }

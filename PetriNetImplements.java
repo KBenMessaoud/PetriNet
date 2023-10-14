@@ -5,7 +5,8 @@ public class PetriNetImplements implements petrinet{
     
     private ArrayList<Transition> transitions = new ArrayList<Transition>();
     private ArrayList<Place> places = new ArrayList<Place>();
-
+	private int sumOutEdge;
+	private int sumInEdge;
     
 
 
@@ -72,28 +73,93 @@ public class PetriNetImplements implements petrinet{
 	}
 
 
-	@Override
-	 public void step(){
-		for (int i =0; i<places.size();i++) {                         //boucle sur toutes les places
-			if(places.size()!=0){
-			for(int j = 0;j< places.get(i).getOutEdgeList().size();j++){                //boucle sur les arcsortants associés aux places i
+//getvalue out, gettokens p1, getvalue in <= getvalue out -> trigger
+	// @Override
+	//  public void step(){
+
+	// 	for (int i =0; i<transitions.size();i++) { //boucle sur toutes les places
+			
+	// 		if(transitions.size()!=0){
+
+	// 		for(int j = 0;j< transitions.get(i).getOutEdgeList().size();j++){                //boucle sur les arcsortants associés aux places i
  					
-					if(places.get(i).getOutEdgeList().get(j).isTriggerable()) {                     //ouehhh
-                     places.get(i).getOutEdgeList().get(j).trigger();
-        	
+	// 				if(transitions.get(i).getOutEdgeList().get(j).isTriggerable()) {                     //ouehhh
+    //                  transitions.get(i).getOutEdgeList().get(j).trigger();
+    //     			}
+	// 				 else{
+    //                  System.out.println("OutEdge : "+ transitions.get(i).getOutEdgeList().get(j)+ " is Not Triggerable");
+	// 				 System.out.println(transitions.size());
+    //            }
+			   
+	// 		 			for(int m=0;m<transitions.get(i).getInEdgeList().size()-1;m++){
+	// 						 a += transitions.get(i).getInEdgeList().get(m).getValue();
+	// 					}
+	// 					for(int n=0;n<transitions.get(i).getOutEdgeList().size()-1;n++){
+	// 						 b += transitions.get(i).getInEdgeList().get(n).getValue();
+	// 					}
+	// 		 for(int k = 0;k< transitions.get(i).getInEdgeList().size();k++){
+						
+    //                 	if(transitions.get(i).getInEdgeList().get(k).getValue()<= transitions.get(i).getOutEdgeList().get(j).getValue() && b>=a){
+							
+	// 						transitions.get(i).getInEdgeList().get(k).trigger(); // il faut aussi boucler sur tous les arcs entrants associés à la place 
+	// 		   }else{System.out.println("poids de l'arc entrant trop grand");}
+    //            }}}
+			 
+			  
+			
+			
+	// 		}
+	// 	}
+                 
+			//getvalue out, gettokens p1, getvalue in <= getvalue out -> trigger
+	@Override
+	 public void step() throws Exception{
+
+		for (int i =0; i<transitions.size();i++) { //boucle sur toutes les places
+						
+						for(int m=0;m<transitions.get(i).getInEdgeList().size();m++){
+							 sumInEdge += transitions.get(i).getInEdgeList().get(m).getValue();
+						}
+						for(int n=0;n<transitions.get(i).getOutEdgeList().size();n++){
+							 sumOutEdge += transitions.get(i).getOutEdgeList().get(n).getValue();
+						}
+						if( sumInEdge==sumOutEdge){
+
+			if(transitions.size()!=0){
+
+			for(int j = 0;j< transitions.get(i).getOutEdgeList().size();j++){                //boucle sur les arcsortants associés aux places i
+ 					
+					if(transitions.get(i).getOutEdgeList().get(j).isTriggerable()) {                     //ouehhh
+                     transitions.get(i).getOutEdgeList().get(j).trigger();
+        			}
+					 else{
+                     System.out.println("OutEdge : "+ transitions.get(i).getOutEdgeList().get(j)+ " is Not Triggerable");
+					 System.out.println(transitions.size());
+               }}
+			   
+			 			
+						
+							for(int k = 0;k< transitions.get(i).getInEdgeList().size();k++){
+							
+							
+							transitions.get(i).getInEdgeList().get(k).trigger(); // il faut aussi boucler sur tous les arcs entrants associés à la place 
+			   }
+			   }
+			 
                     
                }else{
-                     System.out.println("OutEdge : "+ places.get(i).getOutEdgeList().get(j)+ " is Not Triggerable");
-					 System.out.println(places.size());
-               }
-			}
-			   for(int k = 0;k< places.get(i).getInEdgeList().size();k++){
-					places.get(i).getInEdgeList().get(k).trigger(); // il faut aussi boucler sur tous les arcs entrants associés à la place 
+				throw new Exception("Le poids des arcs entrants associés à une transition : "+ transitions.get(i) +" n'est pas égal au poids des arcs sortants");
 			   }
-                 
+			
 			}
-		}
-}
+			 
+			  
+			
+			
+			}
+		
+		
+
 
 
 
