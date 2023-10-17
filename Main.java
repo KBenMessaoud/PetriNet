@@ -35,11 +35,12 @@ p.add(p3);
 p.add(t1);
 p.add(t2);
 
-p.addIncomingArc(t1, p3, 2);
-p.addIncomingArc(t2, p3, 1);
+// p.addIncomingArc(t1, p3, 2);
+// p.addIncomingArc(t1, p3, 1);
 
-p.addOutgoingArc(p2, t2, 1);
-p.addOutgoingArc(p1, t1, 2);
+p.addIncomingArc(t1, p2, 6);
+p.addOutgoingArc(p1, t1, 10);
+p.addOutgoingArc(p1, t1, 1);
 
 //getvalue out, gettokens p1, getvalue in <= getvalue out -> trigger
 
@@ -54,6 +55,6 @@ try {
 }
 System.out.println("valeur de p1 apres step :" +p1.getTokens());
 System.out.println("valeur de p2 apres step :"+ p2.getTokens());
-System.out.println("valeur de p3 apres step :"+ p3.getTokens());
+//System.out.println("valeur de p3 apres step :"+ p3.getTokens());
     }
 }

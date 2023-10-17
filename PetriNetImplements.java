@@ -123,40 +123,70 @@ public class PetriNetImplements implements petrinet{
 						for(int n=0;n<transitions.get(i).getOutEdgeList().size();n++){
 							 sumOutEdge += transitions.get(i).getOutEdgeList().get(n).getValue();
 						}
-						if( sumInEdge==sumOutEdge){
+						//if( sumInEdge==sumOutEdge){
 
 			if(transitions.size()!=0){
 
+
+				boolean isTriggerable = true;
+
 			for(int j = 0;j< transitions.get(i).getOutEdgeList().size();j++){                //boucle sur les arcsortants associés aux places i
  					
-					if(transitions.get(i).getOutEdgeList().get(j).isTriggerable()) {                     //ouehhh
-                     transitions.get(i).getOutEdgeList().get(j).trigger();
+					if(!(transitions.get(i).getOutEdgeList().get(j).isTriggerable())) {  
+						      isTriggerable = false;   
+							  System.out.println("un arc n'est pas triggerable");
+							  break; 
+							           
+                     
         			}
-					 else{
-                     System.out.println("OutEdge : "+ transitions.get(i).getOutEdgeList().get(j)+ " is Not Triggerable");
-					 System.out.println(transitions.size());
-               }}
+					if(isTriggerable){
+						System.out.println("tous les arcs le sont on commence le trigger");
+
+ 						  
+						
+							 transitions.get(i).getOutEdgeList().get(j).trigger();
+							
+							
+						
+					}
+					
+					
+                   
+					
+					
+						//  System.out.println("OutEdge : "+ transitions.get(i).getOutEdgeList().get(j)+ " is Not Triggerable");
+					//  System.out.println(transitions.size());
+              
+				
+				
+				
+					}
 			   
 			 			
-						
+						if(isTriggerable){
 							for(int k = 0;k< transitions.get(i).getInEdgeList().size();k++){
 							
-							
 							transitions.get(i).getInEdgeList().get(k).trigger(); // il faut aussi boucler sur tous les arcs entrants associés à la place 
-			   }
+							
+							
+						}   
+					}
+							
 			   }
 			 
                     
-               }else{
-				throw new Exception("Le poids des arcs entrants associés à une transition : "+ transitions.get(i) +" n'est pas égal au poids des arcs sortants");
-			   }
+               }
+			   
+			 //  else{
+				//throw new Exception("Le poids des arcs entrants associés à une transition : "+ transitions.get(i) +" n'est pas égal au poids des arcs sortants");
+			   //}
 			
 			}
 			 
 			  
 			
 			
-			}
+			//}
 		
 		
 

@@ -5,6 +5,10 @@ public class OutEdge extends Edge{
    private Transition transition;
   
    
+
+
+
+
    
     public OutEdge(int value) {
         super(value);
