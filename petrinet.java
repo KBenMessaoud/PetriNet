@@ -1,63 +1,124 @@
 import java.util.ArrayList;
 
+/**
+ * The petrinet interface defines the operations that can be performed on a Petri net.
+ * It includes methods for adding and removing places and transitions, managing incoming and outgoing arcs,
+ * and performing simulation steps.
+ */
 public interface petrinet {
     
-    //add(Place place): ajoute une nouvelle place au réseau de Petri.
+    /**
+     * Adds a new place to the Petri net.
+     *
+     * @param place the place to be added
+     */
     public void add(Place place);
 
-    //add(Transition transition): Intègre une transition au réseau.
-    public void add (Transition transition);
+    /**
+     * Adds a new transition to the Petri net.
+     *
+     * @param transition the transition to be added
+     */
+    public void add(Transition transition);
 
-    //addOutgoingArc(Place source, Transition destination, int weight): Cette méthode ajoute un arc sortant, connectant une place source à une transition de destination avec un poids défini.
+    /**
+     * Adds an outgoing arc connecting a source place to a destination transition with a defined weight.
+     *
+     * @param place the source place
+     * @param transition the destination transition
+     * @param valeur the weight of the arc
+     */
     public void addOutgoingArc(Place place, Transition transition, int valeur);
 
-    //addIncomingArc(Transition source, Place destination, int weight): Ajoute un arc entrant au réseau, où l'arc est connecté d'une transition source à une place de destination et cela avec un poids spécifique qui correspond dans notre diagramme de classe à l’attribut value.
+    /**
+     * Adds an incoming arc to the network, connecting a source transition to a destination place with a specific weight.
+     *
+     * @param transition the source transition
+     * @param place the destination place
+     * @param valeur the weight of the arc
+     */
     public void addIncomingArc(Transition transition, Place place, int valeur);
 
-    //remove(Place place) : supprime une place
-    public void remove (Place place);
+    /**
+     * Removes a place from the Petri net.
+     *
+     * @param place the place to be removed
+     */
+    public void remove(Place place);
 
-    //remove(Transition transition): supprime une transition du réseau
-    public void remove (Transition transition);
+    /**
+     * Removes a transition from the Petri net.
+     *
+     * @param transition the transition to be removed
+     */
+    public void remove(Transition transition);
 
-    //step(Transition transition): exécute une étape de simulation en activant une transition donnée.
-  //  public void step (Transition transition);
-    
-    //removeOutgoingArc(Place source, Transition destination): Élimine un arc sortant spécifique.
+    /**
+     * Removes a specific outgoing arc.
+     *
+     * @param place the source place of the arc
+     * @param transition the destination transition of the arc
+     */
     public void removeOutgoingArc(Place place, Transition transition);
 
-    //removeIncomingArc(Transition source, Place destination): Retire un arc entrant spécifique.
+    /**
+     * Removes a specific incoming arc.
+     *
+     * @param transition the source transition of the arc
+     * @param place the destination place of the arc
+     */
     public void removeIncominggArc(Transition transition, Place place);
 
-    //findPlaceByName(string): Elle recherche et retourne une place par son nom.
+    /**
+     * Finds and returns a place by its name.
+     *
+     * @param name the name of the place
+     * @return the name of the found place
+     */
     public String findPlaceByName(String name);
 
-    //findTransitionByName(string): Elle retourne une transition grâce à son nom.
+    /**
+     * Finds and returns a transition by its name.
+     *
+     * @param name the name of the transition
+     * @return the name of the found transition
+     */
     public String findTransitionByName(String name);
 
+    /**
+     * Executes a simulation step by activating a given transition.
+     *
+     * @throws Exception if an error occurs during the simulation step
+     */
     public void step() throws Exception;
 
-    //getAllPlaces(): Elle retourne une liste de toutes les places dans le réseau.
+    /**
+     * Returns a list of all places in the Petri net.
+     *
+     * @return a list of all places
+     */
     public ArrayList<Place> getAllPlaces();
 
-    //getAllTransitions(): Elle retourne une liste de toutes les transitions dans le réseau.
+    /**
+     * Returns a list of all transitions in the Petri net.
+     *
+     * @return a list of all transitions
+     */
     public ArrayList<Transition> getAllTransitions();
 
-    //getAllArcs(): Elle retourne une liste de tous les arcs dans le réseau.
+    /**
+     * Returns a list of all outgoing arcs connected to a given place in the Petri net.
+     *
+     * @param place the place whose outgoing arcs are to be retrieved
+     * @return a list of all outgoing arcs connected to the given place
+     */
     public ArrayList<OutEdge> getAllOutGoingEdges(Place place);
 
+    /**
+     * Returns a list of all incoming arcs connected to a given place in the Petri net.
+     *
+     * @param place the place whose incoming arcs are to be retrieved
+     * @return a list of all incoming arcs connected to the given place
+     */
     public ArrayList<InEdge> getAllInComingEdges(Place place);
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
