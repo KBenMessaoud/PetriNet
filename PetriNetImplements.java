@@ -5,8 +5,7 @@ public class PetriNetImplements implements petrinet{
     
     private ArrayList<Transition> transitions = new ArrayList<Transition>();
     private ArrayList<Place> places = new ArrayList<Place>();
-	private int sumOutEdge;
-	private int sumInEdge;
+	
     
 
 
@@ -117,13 +116,7 @@ public class PetriNetImplements implements petrinet{
 
 		for (int i =0; i<transitions.size();i++) { //boucle sur toutes les places
 						
-						for(int m=0;m<transitions.get(i).getInEdgeList().size();m++){
-							 sumInEdge += transitions.get(i).getInEdgeList().get(m).getValue();
-						}
-						for(int n=0;n<transitions.get(i).getOutEdgeList().size();n++){
-							 sumOutEdge += transitions.get(i).getOutEdgeList().get(n).getValue();
-						}
-						//if( sumInEdge==sumOutEdge){
+					
 
 			if(transitions.size()!=0){
 
@@ -138,30 +131,29 @@ public class PetriNetImplements implements petrinet{
 							  break; 
 							           
                      
-        			}
+        			}}
+
+					for(int q = 0;q< transitions.get(i).getOutEdgeList().size();q++){    
 					if(isTriggerable){
-						System.out.println("tous les arcs le sont on commence le trigger");
+						
 
  						  
 						
-							 transitions.get(i).getOutEdgeList().get(j).trigger();
+							 transitions.get(i).getOutEdgeList().get(q).trigger();
 							
 							
 						
-					}
+					}}
 					
 					
                    
 					
 					
-						//  System.out.println("OutEdge : "+ transitions.get(i).getOutEdgeList().get(j)+ " is Not Triggerable");
-					//  System.out.println(transitions.size());
               
 				
 				
 				
-					}
-			   
+					
 			 			
 						if(isTriggerable){
 							for(int k = 0;k< transitions.get(i).getInEdgeList().size();k++){
@@ -186,7 +178,6 @@ public class PetriNetImplements implements petrinet{
 			  
 			
 			
-			//}
 		
 		
 
